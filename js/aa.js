@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-07 16:08:10
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-04-02 23:38:00
+* @Last Modified time: 2018-04-03 15:53:26
 */
 {
 	let imgs=document.querySelectorAll(".imgbox li");
@@ -94,7 +94,7 @@
 						clearInterval(t);
 					}
 					// 将当前滚动条的值设置为0
-					document.documentElement.scrollTop=0;
+					document.documentElement.scrollTop=st;
 				},25)
 			
 		}
@@ -112,20 +112,9 @@
 						clearInterval(t);
 					}
 					// 将当前滚动条的值设置为0
-					document.documentElement.scrollTop=0;
+					document.documentElement.scrollTop=st;
 				},25)
 			
-		}
-		zuoce.onclick=function(){
-			let st=document.documentElement.scrollTop;
-				let t=setInterval(function(){
-					st=-200;
-					if(st<0){
-					 	st=0;
-						clearInterval(t);
-					}
-					document.documentElement.scrollTop=0;
-				},25)
 		}
 
 }
