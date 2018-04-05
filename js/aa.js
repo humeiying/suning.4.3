@@ -1,8 +1,8 @@
 /*
 * @Author: Administrator
 * @Date:   2018-03-07 16:08:10
-* @Last Modified by:   Administrator
-* @Last Modified time: 2018-04-03 15:53:26
+* @Last Modified by:   humeiying
+* @Last Modified time: 2018-04-04 15:22:26
 */
 {
 	let imgs=document.querySelectorAll(".imgbox li");
@@ -202,8 +202,8 @@
 				n++;
 				inner.style.transition="all 0.5s";
 				inner.style.left=n*-400+"px";
-				pagers[n-1].classList.add("active");
-				pagers[n-2].classList.remove("active");
+				// pagers[n-1].classList.add("active");
+				// pagers[n-2].classList.remove("active");
 			}
 		}
 		prev.onclick=function(){
@@ -212,21 +212,29 @@
 				n--;
 				inner.style.transition="all 0.5s";
 				inner.style.left=n*-400+"px";
-				pagers[n-1].classList.add("active");
-				pagers[n].classList.remove("active");
+				// pagers[n-1].classList.add("active");
+				// pagers[n].classList.remove("active");
 			}
 		}
 		inner.addEventListener("transitionend",function(){
 			flag=true;
+			for(let i=0;i<pagers.length;i++){
+				pagers[i].classList.remove("active");
+			}
 			if(n===4){
 				n=1;
 				inner.style.transition="none";
 				inner.style.left=-400+"px";
+				pagers[0].classList.add("active");
 			}
 			if(n===0){
 				n=3;
 				inner.style.transition="none";
 				inner.style.left=-1200+"px";
+				pagers[2].classList.add("active");
+			}
+			if(n>0&&n<4){
+				pagers[n-1].classList.add("active");
 			}
 		})
 		let obj=pagers[0];
